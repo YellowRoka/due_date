@@ -1,45 +1,57 @@
-import 'package:due_date/pages/bug_list_page/parts/bottom_navigation.dart';
+import 'package:due_date/common/bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../db_hive/data_object.dart';
+import '../../state_machine/state_manager_bloc.dart';
 import 'parts/bug_list_tile.dart';
 import 'parts/sliver_head_bar.dart';
 
-class BugListPage extends StatelessWidget {
+class BugListPage extends StatefulWidget {
   const BugListPage({Key? key}) : super(key: key);
 
   @override
+  State<BugListPage> createState() => _BugListPageState();
+}
+
+class _BugListPageState extends State<BugListPage> {
+  List<BugDataObject>? bugDataList = null;
+  List<BugDataObject> empthyList = [];
+
+  @override
   Widget build( BuildContext context ){
-
-    List<BugDataObject> bugDataList = [
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-      BugDataObject(DateTime.now(),DateTime.now(),DateTime.now()),
-    ];
-
+    if(bugDataList == null){
+      BlocProvider.of<StateManagerBloc>( context ).add( const StateManagerEventGetBugList() );
+    }
+         
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          const SliverHeadBar(),
+      body: BlocListener< StateManagerBloc, StateManagerState >(
 
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              ( context, index ) => BugListTile( bugData: bugDataList[ index ] ),
-              childCount: bugDataList.length,
+        listener: ( context, state ) {
+          if( state is StateManagerStateAddedBug ){
+            bugDataList = state.newList ?? [];
+          }
+          if( state is StateManagerStatetGetBugList ){
+            bugDataList = state.bugList;
+          }
+          setState(() {});
+        },
+
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverHeadBar(),
+  
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                ( context, index ) => BugListTile( bugData: (bugDataList != null )?(bugDataList![ index ]):(empthyList[index]) ),
+                childCount: bugDataList?.length??0,
+              ),
             ),
-          ),
-
-        ]
+  
+          ]
+        )
       ),
-
       bottomNavigationBar: const ButtomNavigator()
     );
-
   }
 }

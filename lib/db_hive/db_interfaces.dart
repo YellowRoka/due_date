@@ -6,5 +6,7 @@ abstract class DBInterfaces {
   Future< BugDataObject >          getBug( int id );
   Future< List< BugDataObject >? > getAllBug();
   Future< void >                   removeBug( int id );
+  Future< void >                   initHiveDB(); 
+  int                              getDBSize();
 
 }

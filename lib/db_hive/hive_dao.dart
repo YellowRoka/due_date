@@ -9,7 +9,7 @@ class HiveDAO {
 
   @HiveField(0) final DateTime  bugDate;
   @HiveField(1) final DateTime? fixDate;
-  @HiveField(2) final DateTime? turnroundTime;
+  @HiveField(2) final int       turnroundTime;
 
   HiveDAO(this.bugDate, this.fixDate, this.turnroundTime);
 

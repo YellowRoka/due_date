@@ -23,7 +23,12 @@ class StateManagerEventLoginRQ extends StateManagerEvent {
 }
 
 class StateManagerEventAddBug extends StateManagerEvent {
-  const StateManagerEventAddBug();
+  final DateTime bugDate;
+  final int      turnTime;
+  const StateManagerEventAddBug( {required this.bugDate, required this.turnTime});
+
+    @override
+  List<Object> get props => [ bugDate, turnTime ];
 }
 
 class StateManagerEventEntered extends StateManagerEvent {
@@ -32,4 +37,12 @@ class StateManagerEventEntered extends StateManagerEvent {
 
 class StateManagerEventBack extends StateManagerEvent {
   const StateManagerEventBack();
+}
+
+class StateManagerEventToCreateBug extends StateManagerEvent{
+  const StateManagerEventToCreateBug();
+}
+
+class StateManagerEventGetBugList extends StateManagerEvent{
+  const StateManagerEventGetBugList();
 }

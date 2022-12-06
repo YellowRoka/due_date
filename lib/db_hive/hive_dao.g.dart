@@ -19,7 +19,7 @@ class HiveDAOAdapter extends TypeAdapter<HiveDAO> {
     return HiveDAO(
       fields[0] as DateTime,
       fields[1] as DateTime?,
-      fields[2] as DateTime?,
+      fields[2] as int,
     );
   }
 

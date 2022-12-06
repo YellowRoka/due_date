@@ -1,9 +1,10 @@
+import 'package:due_date/db_hive/data_object.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/bug_list_page/bug_list_view.dart';
-import '../pages/create_bug_page/create_bug_view.dart';
+import '../pages/create_bug_page/create_bug_page.dart';
 
-PageRouteBuilder<dynamic> animatedRouteToMain(RouteSettings settings) {
+PageRouteBuilder<dynamic> animatedRouteToMain( RouteSettings settings ){
   return PageRouteBuilder(
     settings:           settings,
     pageBuilder:        ( context, animation, secundaryAnimation ) => Container(),
@@ -22,7 +23,7 @@ PageRouteBuilder<dynamic> animatedRouteToMain(RouteSettings settings) {
   );
 }
 
-PageRouteBuilder<dynamic> animatedRouteToBugList(RouteSettings settings) {
+PageRouteBuilder<dynamic> animatedRouteToBugList( RouteSettings settings ){
   return PageRouteBuilder(
     settings:           settings,
     pageBuilder:        ( context, animation, secundaryAnimation ) => const BugListPage(),
@@ -41,7 +42,7 @@ PageRouteBuilder<dynamic> animatedRouteToBugList(RouteSettings settings) {
   );
 }
 
-PageRouteBuilder<dynamic> animatedRouteToCreateReport(RouteSettings settings) {
+PageRouteBuilder<dynamic> animatedRouteToCreateReport( RouteSettings settings ){
   return PageRouteBuilder(
     settings:           settings,
     pageBuilder:        ( context, animation, secundaryAnimation ) => const CreateBugPage(),

@@ -1,0 +1,39 @@
+Date : 2022-12-06 13:09:50
+Directory : c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib
+Total : 8 files,  38 codes, 12 comments, 12 blanks, all 62 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |          8 |         38 |         12 |         12 |         62 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |          8 |         38 |         12 |         12 |         62 |
+| db_hive                                                                                              |          2 |          2 |          2 |          0 |          4 |
+| dynamic_routes                                                                                       |          1 |          2 |          0 |          0 |          2 |
+| pages                                                                                                |          2 |         -9 |         10 |          1 |          2 |
+| pages\bug_list_page                                                                                  |          1 |        -10 |         11 |          1 |          2 |
+| pages\create_bug_page                                                                                |          1 |          1 |         -1 |          0 |          0 |
+| pages\create_bug_page\parts                                                                          |          1 |          1 |         -1 |          0 |          0 |
+| state_machine                                                                                        |          3 |         43 |          0 |         11 |         54 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                             | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\db_interfaces.dart                        | Dart     |          2 |          0 |          0 |          2 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\hive_control.dart                         | Dart     |          0 |          2 |          0 |          2 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\dynamic_routes\routes.dart                        | Dart     |          2 |          0 |          0 |          2 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\pages\bug_list_page\bug_list_view.dart            | Dart     |        -10 |         11 |          1 |          2 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\pages\create_bug_page\parts\calculate_button.dart | Dart     |          1 |         -1 |          0 |          0 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\state_machine\state_manager_bloc.dart             | Dart     |         26 |          0 |          6 |         32 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\state_machine\state_manager_event.dart            | Dart     |          7 |          0 |          2 |          9 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\state_machine\state_manager_state.dart            | Dart     |         10 |          0 |          3 |         13 |
+| Total                                                                                                |          |         38 |         12 |         12 |         62 |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

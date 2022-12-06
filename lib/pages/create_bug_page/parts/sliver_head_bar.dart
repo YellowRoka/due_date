@@ -26,7 +26,7 @@ class SliverHeadBar extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right:10.0),
           child:   IconButton(
-            onPressed: () => BlocProvider.of<StateManagerBloc>( context ).add( const StateManagerEventToCreateBug() ), 
+            onPressed: () => BlocProvider.of<StateManagerBloc>( context ).add( const StateManagerEventBack() ), 
             icon: const Icon( 
               Icons.menu_rounded, 
               color: Colors.black, 

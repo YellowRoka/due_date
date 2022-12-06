@@ -21,12 +21,9 @@ class LoginPage extends StatelessWidget{
                 padding: const EdgeInsets.symmetric( horizontal: 60.0 ),
                 child: Column(
                   children: const [
-                    SizedBox( height: 100 ),
-                    MailDataLine(),
-                    SizedBox( height: 30 ),
-                    PassWordDataLine(),
-                    SizedBox( height: 60 ),
-                    LoginButton()
+                    SizedBox( height: 100 ), MailDataLine(),
+                    SizedBox( height: 30 ), PassWordDataLine(),
+                    SizedBox( height: 60 ), LoginButton()
                   ],
                 ),
               ),

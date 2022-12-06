@@ -47,9 +47,9 @@ class BugListTile extends StatelessWidget {
               mainAxisAlignment:  MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text( _dateToString( bugData.bugDate )       ),
-                Text( _dateToString( bugData.turnroundTime ) ),
-                Text( _dateToString( bugData.fixDate )       ),
+                Text( _dateToString( bugData.bugDate ) ),
+                Text( "${bugData.turnroundTime} Hours" ),
+                Text( _dateToString( bugData.fixDate ) ),
               ]
             )
       

@@ -3,7 +3,7 @@ class BugDataObject {
 
   final DateTime  bugDate;
   final DateTime? fixDate;
-  final DateTime? turnroundTime;
+  final int       turnroundTime;
 
   BugDataObject(this.bugDate, this.fixDate, this.turnroundTime);
 

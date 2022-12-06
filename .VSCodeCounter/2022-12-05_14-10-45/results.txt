@@ -1,0 +1,49 @@
+Date : 2022-12-05 14:10:45
+Directory : c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib
+Total : 16 files,  185 codes, 6 comments, 70 blanks, all 261 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         16 |        185 |          6 |         70 |        261 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                          | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                             |         16 |        185 |          6 |         70 |        261 |
+| bloc                                                                                          |          3 |         17 |          1 |          8 |         26 |
+| common                                                                                        |          1 |         12 |          0 |          2 |         14 |
+| db_hive                                                                                       |          5 |         92 |          5 |         41 |        138 |
+| dynamic_routes                                                                                |          1 |         49 |          0 |         10 |         59 |
+| firebase                                                                                      |          2 |          0 |          0 |          2 |          2 |
+| pages                                                                                         |          3 |          0 |          0 |          3 |          3 |
+| pages\bug_list_page                                                                           |          1 |          0 |          0 |          1 |          1 |
+| pages\create_pug_page                                                                         |          1 |          0 |          0 |          1 |          1 |
+| pages\login_page                                                                              |          1 |          0 |          0 |          1 |          1 |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                      | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\bloc\state_manager_bloc.dart               | Dart     |         10 |          1 |          3 |         14 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\bloc\state_manager_event.dart              | Dart     |          3 |          0 |          2 |          5 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\bloc\state_manager_state.dart              | Dart     |          4 |          0 |          3 |          7 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\common\theme.dart                          | Dart     |         12 |          0 |          2 |         14 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\data_object.dart                   | Dart     |          8 |          0 |          6 |         14 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\db_interfaces.dart                 | Dart     |          7 |          0 |          4 |         11 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\hive_control.dart                  | Dart     |         27 |          1 |         14 |         42 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\hive_dao.dart                      | Dart     |         14 |          0 |          9 |         23 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\db_hive\hive_dao.g.dart                    | Dart     |         36 |          4 |          8 |         48 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\dynamic_routes\routes.dart                 | Dart     |         49 |          0 |         10 |         59 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\firebase\auth.dart                         | Dart     |          0 |          0 |          1 |          1 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\firebase\init.dart                         | Dart     |          0 |          0 |          1 |          1 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\main.dart                                  | Dart     |         15 |          0 |          4 |         19 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\pages\bug_list_page\bug_list_view.dart     | Dart     |          0 |          0 |          1 |          1 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\pages\create_pug_page\create_bug_view.dart | Dart     |          0 |          0 |          1 |          1 |
+| c:\PROJECTS\FLUTTER\diverzum_due_date\due_date\lib\pages\login_page\login_view.dart           | Dart     |          0 |          0 |          1 |          1 |
+| Total                                                                                         |          |        185 |          6 |         70 |        261 |
++-----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

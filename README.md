@@ -11,6 +11,7 @@ This test is to learn more about your skills and capabilities to implement algor
 
 ## The problem: 
 The program reads the currently reported problems (bugs) and calculates the due date following the rules below: 
+
     ● Working hours are 9 AM to 5 PM every working day (Monday through Friday) 
     
     ● The program does not deal with holidays, which means that a holiday on a Thursday is still considered a working day by the program. Also, a working Saturday will still be considered a non-working day by the system. 

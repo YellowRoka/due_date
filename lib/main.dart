@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'db_hive/hive_control.dart';
 import 'dynamic_routes/routes.dart';
 import 'firebase/config.dart';
 import 'pages/login_page/login_page.dart';
@@ -29,12 +28,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
     
         onGenerateRoute: ( settings ){
-          if( settings.name?.startsWith( '/bugs_list_page' )?? false ){
-            return animatedRouteToBugList( settings );
-          }
-    
-          if( settings.name?.startsWith( '/add_bug_page' )?? false ){
-            return animatedRouteToCreateReport( settings );
+          if( settings.name?.startsWith( '/bugs_page' )?? false ){
+            return animatedRouteToBugHandlerPage( settings );
           }
     
           return null;
@@ -50,21 +45,22 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           body: BlocListener<StateManagerBloc, StateManagerState>(
             listener: ( context, state ){
-              if( state is StateManagerStatetToBugList ){
-                Navigator.pushNamed( context, '/bugs_list_page' );
-              }
-            
+
               if( state is StateManagerStatetLoginFailed ){
                 const snackBar = SnackBar( content: Text('wrong data! Maybe are you a new user?') );
                 ScaffoldMessenger.of( context ).showSnackBar( snackBar );
               }
-            
-              if( state is StateManagerStateToCreateBug ){
-                Navigator.pushNamed( context, '/add_bug_page' );
+
+              if( state is StateManagerStatetToBugHandler ){
+                Navigator.pushNamed( context, '/bugs_page' );
               }
-            
+/*
               if( state is StateManagerStateBacked ){
                 Navigator.pop(context);
+              }*/
+
+              if( state is StateManagerStateLogout ){
+                Navigator.popUntil(context, ModalRoute.withName('/'));
               }
             
             },

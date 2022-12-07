@@ -1,4 +1,5 @@
-import 'data_object.dart';
+
+import 'data_model/data_object.dart';
 
 abstract class DBInterfaces {
   

@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../db_hive/data_object.dart';
+import '../db_hive/data_model/data_object.dart';
+import '../db_hive/db_interfaces.dart';
 import '../db_hive/hive_control.dart';
 import '../firebase/autentication/authentication_data_source.dart';
+import '../functions/date_recalculator.dart';
 
 part 'state_manager_event.dart';
 part 'state_manager_state.dart';
@@ -11,7 +13,7 @@ part 'state_manager_state.dart';
 class StateManagerBloc extends Bloc<StateManagerEvent, StateManagerState> {
 
   AuthenticationDataSource autDataSource = AuthenticationDataSource();
-  HiveController           hive          = HiveController();
+  DBInterfaces             hive          = HiveController();
   List<BugDataObject>?     bugList       = [];
   
   StateManagerBloc() : super( const StateManagerStateInitial() ){
@@ -22,23 +24,19 @@ class StateManagerBloc extends Bloc<StateManagerEvent, StateManagerState> {
     });
 
     on<StateManagerEventLoginRQ>( (event, emit) async {
-      //bugList = await hive.getAllBug() ?? [];
-
       try{
         await autDataSource.signIn(event.mail,event.password);
         emit( const StateManagerStatetLoginSucces() );
-        
-        emit( const StateManagerStatetToBugList() );
-
-        
-        //emit( StateManagerStatetGetBugList( bugList! ) );
+        emit( const StateManagerStatetToBugHandler() );
       }
       catch(e){
-        print(e);
+        //print(e);
         emit( const StateManagerStatetLoginFailed() );
       }
-      //emit( const StateManagerStatetBase() );
-      
+    });
+
+    on<StateManagerEventToBugList>( (event, emit) async {
+      emit( const StateManagerStatetToBugList() );
     });
 
     on<StateManagerEventGetBugList>( (event, emit) async {
@@ -48,11 +46,10 @@ class StateManagerBloc extends Bloc<StateManagerEvent, StateManagerState> {
 
     on<StateManagerEventToCreateBug>( (event, emit){
       emit( const StateManagerStateToCreateBug() );
-      //emit( const StateManagerStatetBase() );
     });
 
     on<StateManagerEventAddBug>( (event, emit) async {
-      DateTime calculatedDate = _calculateDueDate( event.bugDate, event.turnTime );
+      DateTime calculatedDate = calculateDueDate( event.bugDate, event.turnTime );
 
       final int calculatedID = hive.getDBSize() + 1;
 
@@ -61,37 +58,19 @@ class StateManagerBloc extends Bloc<StateManagerEvent, StateManagerState> {
       bugList = await hive.getAllBug() ?? [];
       
       emit( StateManagerStateAddedBug( bugList ) );
-      //emit( const StateManagerStatetBase() );
-      emit( const StateManagerStateBacked() );
+      emit( const StateManagerStatetToBugList() );
     });
 
-    on<StateManagerEventBack>( (event, emit){
-      emit( const StateManagerStateBacked() );
+    on<StateManagerEventLogout>( (event, emit) async {
+      emit( const StateManagerStateLogout() );
     });
 
   }
 
   @override
   void onEvent( StateManagerEvent event ){
-    print("selected on SM Bloc: $event");
     super.onEvent(event);
+    //print("selected on SM Bloc: $event");
   }
   
-  DateTime _calculateDueDate( DateTime bugDate, int turnTime ){
-    int days  = turnTime ~/ 8;
-    int hours = turnTime  % 8;
-
-    return DateTime(
-      bugDate.year,
-      bugDate.month,
-      bugDate.day  + days, //TODO: recalculate to work hours/days!!!
-      bugDate.hour + hours,
-      bugDate.minute,
-      bugDate.millisecond,
-      bugDate.microsecond
-    );
-  }
-  void recalculateTurnTime( int turnTime ){
-
-  }
 }

@@ -7,7 +7,6 @@ abstract class StateManagerEvent {
   List<Object> get props => [];
 }
 
-
 class StateManagerEventInit extends StateManagerEvent {
   const StateManagerEventInit();
 }
@@ -22,6 +21,18 @@ class StateManagerEventLoginRQ extends StateManagerEvent {
   List<Object> get props => [ mail, password ];
 }
 
+class StateManagerEventToBugList extends StateManagerEvent{
+  const StateManagerEventToBugList();
+}
+
+class StateManagerEventGetBugList extends StateManagerEvent{
+  const StateManagerEventGetBugList();
+}
+
+class StateManagerEventToCreateBug extends StateManagerEvent{
+  const StateManagerEventToCreateBug();
+}
+
 class StateManagerEventAddBug extends StateManagerEvent {
   final DateTime bugDate;
   final int      turnTime;
@@ -31,18 +42,6 @@ class StateManagerEventAddBug extends StateManagerEvent {
   List<Object> get props => [ bugDate, turnTime ];
 }
 
-class StateManagerEventEntered extends StateManagerEvent {
-  const StateManagerEventEntered();
-}
-
-class StateManagerEventBack extends StateManagerEvent {
-  const StateManagerEventBack();
-}
-
-class StateManagerEventToCreateBug extends StateManagerEvent{
-  const StateManagerEventToCreateBug();
-}
-
-class StateManagerEventGetBugList extends StateManagerEvent{
-  const StateManagerEventGetBugList();
+class StateManagerEventLogout extends StateManagerEvent{
+  const StateManagerEventLogout();
 }

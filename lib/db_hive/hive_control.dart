@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'data_model/data_object.dart';
+import 'data_model/hive_dao.dart';
 import 'db_interfaces.dart';
-import 'data_object.dart';
-import 'hive_dao.dart';
+
 
 //usage: flutter pub run build_runner watch --delete-conflicting-outputs
 

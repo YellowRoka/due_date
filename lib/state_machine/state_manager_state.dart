@@ -10,12 +10,27 @@ abstract class StateManagerState {
 class StateManagerStateInitial extends StateManagerState {
   const StateManagerStateInitial();
 }
+
 class StateManagerStateInited extends StateManagerState {
   const StateManagerStateInited();
 }
+
 class StateManagerStatetLoginSucces extends StateManagerState {
   const StateManagerStatetLoginSucces();
 }
+
+class StateManagerStatetLoginFailed extends StateManagerState {
+  const StateManagerStatetLoginFailed();
+}
+
+class StateManagerStatetToBugHandler extends StateManagerState {
+  const StateManagerStatetToBugHandler();
+}
+
+class StateManagerStatetToBugList extends StateManagerState {
+  const StateManagerStatetToBugList();
+}
+
 class StateManagerStatetGetBugList extends StateManagerState {
   final List<BugDataObject> bugList;
   
@@ -23,9 +38,11 @@ class StateManagerStatetGetBugList extends StateManagerState {
   @override
   List<Object> get props => [ bugList ];
 }
-class StateManagerStatetLoginFailed extends StateManagerState {
-  const StateManagerStatetLoginFailed();
+
+class StateManagerStateToCreateBug extends StateManagerState {
+  const StateManagerStateToCreateBug();
 }
+
 class StateManagerStateAddedBug extends StateManagerState {
   final List<BugDataObject>? newList;
 
@@ -34,15 +51,7 @@ class StateManagerStateAddedBug extends StateManagerState {
   @override
   List<Object> get props => [ newList! ];
 }
-class StateManagerStateBacked extends StateManagerState {
-  const StateManagerStateBacked();
-}
-class StateManagerStatetBase extends StateManagerState {
-  const StateManagerStatetBase();
-}
-class StateManagerStateToCreateBug extends StateManagerState {
-  const StateManagerStateToCreateBug();
-}
-class StateManagerStatetToBugList extends StateManagerState {
-  const StateManagerStatetToBugList();
+
+class StateManagerStateLogout extends StateManagerState {
+  const StateManagerStateLogout();
 }

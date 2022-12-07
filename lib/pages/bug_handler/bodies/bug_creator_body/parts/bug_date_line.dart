@@ -58,15 +58,23 @@ class _BugDateLineState extends State<BugDateLine> {
             context:     context, 
             initialDate: DateTime.now(),
             firstDate:   DateTime.now(),// - not to allow to choose before today.
-            lastDate:    DateTime( 2100 )
+            lastDate:    DateTime( 2100 ),
+
+            selectableDayPredicate: ( DateTime date ){
+              if( (date.weekday == DateTime.saturday) || (date.weekday == DateTime.sunday) ){
+                return false;
+              }
+              return true;
+            },
           );
             
+          
           if( pickedDate != null ){
-            DateTime nowTime     = DateTime.now();
-            DateTime finalTime   = DateTime.utc( pickedDate.year, pickedDate.month,pickedDate.day, nowTime.hour, nowTime.minute, nowTime.second, nowTime.millisecond, nowTime.microsecond );
-            String formattedDate = DateFormat( 'yyyy-MM-dd hh:mm' ).format( finalTime ); 
-            
-            setState( () => dateInputController.text = formattedDate );
+              DateTime nowTime     = DateTime.now();
+              DateTime finalTime   = DateTime.utc( pickedDate.year, pickedDate.month,pickedDate.day, nowTime.hour, nowTime.minute, nowTime.second, nowTime.millisecond, nowTime.microsecond );
+              String formattedDate = DateFormat( 'yyyy-MM-dd hh:mm' ).format( finalTime ); 
+              
+              setState( () => dateInputController.text = formattedDate );       
           }
         },
       ),
@@ -74,9 +82,13 @@ class _BugDateLineState extends State<BugDateLine> {
   }
 
   String? _validateField( String? value ){
+    DateTime selectedData = DateTime.parse(value??"");
     if( value == null || value.isEmpty ){
       return 'Select date';
     } 
+    else if((selectedData.hour < 9) || (selectedData.hour > 17)){
+      return 'Bug can reported between 09:00-17:00';
+    }
     else {
       return null;
     }
